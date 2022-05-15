@@ -1,0 +1,21 @@
+router-outlet {
+  margin-top: 60px;
+}
+
+.spinner_overlay {
+  position: absolute;
+  z-index: 199;
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  opacity: 0.4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+}
+
+mat-spinner {
+  opacity: 1;
+}

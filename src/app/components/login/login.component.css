@@ -1,0 +1,51 @@
+.login{
+  position: absolute;
+  display: flex;
+  bottom: 80px;
+  right: 40px;
+  flex-direction: column;
+}
+.login-image{
+  position: relative;
+  height: calc(100vh - 120px);
+  top : 0;
+  left: 0;
+  width: 100%;
+}
+.login img{
+  align-self: end;
+  width: 170px;
+}
+mat-form-field{
+  height: 60px;
+  width: 300px;
+  margin-top: 10px;
+}
+.submit{
+  margin-top: 20px;
+  align-self: end;
+  width: 60%;
+  border-color: lightseagreen;
+  color: black;
+  margin-bottom: 10px;
+}
+
+
+
+  /* Material */
+.example-container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}

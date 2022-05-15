@@ -1,0 +1,7 @@
+.header{
+  z-index: 100 !important;
+}
+.header-icon {
+  margin-top: 5px;
+  width: 160px;
+}
