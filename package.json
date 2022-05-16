@@ -1,7 +1,9 @@
 {
   "name": "health-io-admin",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "main": "main.js",
+  "author": "Sourabh (srvraj311)",
+  "description": "Application for Hospitals to Update Data about Hospitals to Health-IO app",
   "build": {
     "appId": "com.srvvraj311.healthio.admin",
     "productName": "Health-IO",
@@ -13,7 +15,7 @@
     },
     "mac": {
       "category": "utility",
-      "icon": "dist/assets/health.io.icns"
+      "icon": "dist/health-io-admin/assets/health.io.icns"
     },
     "snap": {
       "description": "Health-IO Hospital Application "
@@ -21,7 +23,7 @@
     "files": [
       "dist/health-io-admin/",
       "package.json",
-      "app.js"
+      "main.js"
     ]
   },
   "scripts": {
