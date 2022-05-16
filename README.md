@@ -1,27 +1,40 @@
-# HealthIOAdmin
+# Health-IO - Hospital App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This is a part of [Health.io](https://health-io-app.herokuapp.com/) Project, This repository Contains a Electron App that will be Provided to Hospitals for Updating their Live Data to Central Database.(Feeders). Which will be displayed to Public.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+This application uses Angular 13 as its base wrapped up in Electron 18 , which provide flexibility for it to run on any platform. All the necessary features working to update and view Realtime data of the Particular Hospital.
 
-## Running unit tests
+## Libraries and Frameworks Used
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Electron.js
+Angular 13 and Angular Material
+wait-on
+rxjs
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Configure and Run
 
-## Further help
+1. Go to project root directory.
+2. Install all the necessary dependencies using
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+```jsx
+npm install --save
+npm install -g electron
+npm install -g wait-on
+npm install -g @angular/cli
+```
+
+1. Run the Application with Pre-Configured Run Scripts
+
+```jsx
+npm run electron:serve
+```
+
+## Screenshots
+![Image](https://res.cloudinary.com/srvraj311/image/upload/v1652737203/Screenshot_2022-05-17_at_2.56.32_AM_d606ez.png)
+![Image](https://res.cloudinary.com/srvraj311/image/upload/v1652737204/Screenshot_2022-05-17_at_2.56.35_AM_tjwnhi.png)
+![Image](https://res.cloudinary.com/srvraj311/image/upload/v1652737200/Screenshot_2022-05-17_at_2.56.44_AM_kzjvbh.png)
