@@ -43,11 +43,25 @@ export class UserService {
         this.saveUserData(response as User);
         this.router.navigate(['home']).then(_ => {
           this.uiService.showPositiveSnack("Login Successful");
+          this.uiService.hideProgressSpinner();
+          return;
         })
-      } else {
-        this.uiService.showErrorSnack("Unable to login, Try again Later");
       }
-      this.uiService.hideProgressSpinner();
+      else if(response && response.status == "400"){
+        this.uiService.showErrorSnack("Wrong Credentials");
+        this.uiService.hideProgressSpinner();
+        return;
+      }else if(response && response.status == "401"){
+        this.uiService.showErrorSnack(response.message);
+        this.uiService.hideProgressSpinner();
+        return;
+      }
+      else {
+        this.uiService.showErrorSnack("Unable to login, Try again Later");
+        this.uiService.hideProgressSpinner();
+        return;
+      }
+
     })
 
   }

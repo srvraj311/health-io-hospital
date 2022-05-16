@@ -1,0 +1,45 @@
+<div class="primary-items">
+  <ng-form class="form1" #f (ngSubmit)="update()">
+      <mat-form-field appearance="outline">
+        <mat-label>A Positive</mat-label>
+        <input type="number" matInput name="a_positive" [(ngModel)]="bloodBank.a_positive">
+        <mat-hint>Amount of A Positive Blood Available </mat-hint>
+      </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>B Positive</mat-label>
+      <input type="number" matInput name="b_positive" [(ngModel)]="bloodBank.b_positive">
+      <mat-hint>Amount of B Positive Blood Available </mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>AB Positive</mat-label>
+      <input type="number" matInput name="ab_positive" [(ngModel)]="bloodBank.ab_positive">
+      <mat-hint>Amount of AB Positive Blood Available </mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>O Positive</mat-label>
+      <input type="number" matInput name="o_positive" [(ngModel)]="bloodBank.o_positive">
+      <mat-hint>Amount of O Positive Blood Available </mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>A Negative</mat-label>
+      <input type="number" matInput name="a_negative" [(ngModel)]="bloodBank.a_negative">
+      <mat-hint>Amount of A Negative Blood Available </mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>B Negative</mat-label>
+      <input type="number" matInput name="b_negative" [(ngModel)]="bloodBank.b_negative">
+      <mat-hint>Amount of B Negative Blood Available </mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>AB Negative</mat-label>
+      <input type="number" matInput name="ab_negative" [(ngModel)]="bloodBank.ab_negative">
+      <mat-hint>Amount of AB Negative Blood Available </mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>O Negative</mat-label>
+      <input type="number" matInput name="o_negative" [(ngModel)]="bloodBank.o_negative">
+      <mat-hint>Amount of O Negative Blood Available </mat-hint>
+    </mat-form-field>
+    <button class="update-btn" color="primary" mat-raised-button (click)="update()">Update</button>
+  </ng-form>
+</div>

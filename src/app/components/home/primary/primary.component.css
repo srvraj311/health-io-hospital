@@ -1,0 +1,72 @@
+.primary-items{
+  margin: 20px;
+}
+.form1{
+  display: flex;
+  flex-direction: column;
+}
+.horizontal{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+}
+mat-form-field {
+  width: 100%;
+}
+
+.horizontal mat-form-field:nth-child(2), .horizontal mat-form-field:nth-child(3) {
+  margin-left: 10px;
+}
+.vertical{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.mat_icon_button{
+  margin: 10px;
+  color: white;
+}
+
+.example-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+  align-items: flex-start;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+
+.example-section {
+  margin: 12px 0;
+}
+
+.example-margin {
+  margin: 0 12px;
+}
+
+ul {
+  list-style-type: none;
+  margin-top: 4px;
+}
+ul li {
+  float: left;
+  margin-left: 20px;
+}
+.update-btn{
+  width: 200px;
+  align-self: end;
+  margin-right: 30px;
+}
+
+input[type = 'time']{
+  border: 1px solid lightgray;
+  padding: 4px;
+  border-radius: 10px;
+  background-color: white;
+  outline: none;
+}

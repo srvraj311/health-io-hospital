@@ -1,0 +1,13 @@
+<div class="sidebar">
+  <mat-label class="title">{{hospital.name}}</mat-label>
+  <mat-label class="subtitle">{{hospital.city_name}}</mat-label>
+  <div class="horizontal">
+    <img src="assets/man.png" alt="">
+    <div class="vertical">
+      <mat-label class="name">{{user.f_name + " " + user.l_name}}</mat-label>
+      <p class="email">{{user.email}}</p>
+      <button mat-raised-button color="warn" (click)="logout()"><mat-icon matPrefix>logout</mat-icon>Logout</button>
+    </div>
+  </div>
+  <div>Last Updated : <mat-hint>{{hospital.last_updated}}</mat-hint></div>
+</div>

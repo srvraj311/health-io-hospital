@@ -1,0 +1,25 @@
+<div class="primary-items">
+  <ng-form class="form1" #f (ngSubmit)="update()">
+      <mat-form-field appearance="outline">
+        <mat-label>X-Ray Units Capacity</mat-label>
+        <input type="number" matInput name="xray" [(ngModel)]="facility.xray">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>ECG Units Capacity</mat-label>
+        <input type="number" matInput name="ecg" [(ngModel)]="facility.ecg">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>MRI Units Capacity</mat-label>
+        <input type="number" matInput name="mri" [(ngModel)]="facility.mri">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Ultra-Sound Units Capacity</mat-label>
+        <input type="number" matInput name="ultrasound" [(ngModel)]="facility.ultrasound">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Ambulance Counts </mat-label>
+        <input type="number" matInput name="ambulance" [(ngModel)]="facility.ambulance">
+      </mat-form-field>
+    <button class="update-btn" color="primary" mat-raised-button (click)="update()">Update</button>
+  </ng-form>
+</div>

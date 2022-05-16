@@ -1,18 +1,19 @@
 .home {
   position: relative;
   top: 0;
-  bottom: 80px;
-  height: calc(100vh - 60px - 80px);
-  width: 100vw;
+  bottom: 0 ;
+  height: calc(100vh - 60px);
+  width: 100%;
   background: transparent;
   display: flex;
   flex-direction: row;
+
 }
 .left_bar{
   flex: 1;
   height: 100%;
-  background: lightseagreen;
-  min-width: 300px;
+  min-width: 370px;
+  background: white;
 }
 .content{
   flex : 3;

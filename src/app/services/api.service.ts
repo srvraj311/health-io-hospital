@@ -1,18 +1,19 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
 import Hospital from "../Models/Hospital";
 import {UserService} from "./user.service";
 import {UiService} from "./ui.service";
-import {User} from "../Models/HelperModals";
-import {HttpClient} from "@angular/common/http";
+import {Availability, BloodBank, Facility, Primary, User} from "../Models/HelperModals";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {HttpPaths} from "../Config/HttpPaths";
-import {Route, Router} from "@angular/router";
-
+import {Router} from "@angular/router";
+import {utf8Encode} from "@angular/compiler/src/util";
+const JSON_Header = new HttpHeaders({'Content-Type': 'application/json'});
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  hospital:BehaviorSubject<Hospital|null> = new BehaviorSubject<Hospital | null>(null);
+  private hospital:BehaviorSubject<Hospital|null> = new BehaviorSubject<Hospital | null>(null);
   getHospital:Observable<Hospital|null> = this.hospital.asObservable();
   BASE_URL:string = '';
   constructor(private userService : UserService, private uiService:UiService, private http:HttpClient, private router : Router) {
@@ -30,6 +31,7 @@ export class ApiService {
       this.http.get<Hospital>(url)
         .subscribe(res => {
           if(res){
+            this.hospital.next(res);
             localStorage.setItem("hospital" , JSON.stringify(res));
             this.uiService.showPositiveSnack('Hospital Details Fetched');
             this.uiService.hideProgressSpinner();
@@ -46,5 +48,74 @@ export class ApiService {
     }
   }
 
+  getHospitalFromLocal():Hospital | null{
+    const saved = localStorage.getItem('hospital')
+    if(saved){
+      this.hospital.next(JSON.parse(saved));
+      return JSON.parse(saved);
+    }
+    return null;
+  }
+
+  setHospitalToLocal(res :string){
+    const hospital : Hospital = JSON.parse(res)
+    localStorage.setItem('hospital', JSON.stringify(hospital));
+    this.hospital.next(hospital);
+  }
+
+  updatePrimary(details: Primary) {
+    const url = `${this.BASE_URL}${HttpPaths.updatePrimary}`;
+    this.callUpdateApi(url , details);
+  }
+
+  updateAvailability(details: Availability) {
+    const url = `${this.BASE_URL}${HttpPaths.updateAvailability}`;
+    this.callUpdateApi(url , details);
+  }
+  updateFacility(details : Facility) {
+    const url = `${this.BASE_URL}${HttpPaths.updateFacility}`;
+    this.callUpdateApi(url , details);
+  }
+  updateBloodBank(details : BloodBank){
+    const url = `${this.BASE_URL}${HttpPaths.updateBloodBank}`;
+    this.callUpdateApi(url , details);
+  }
+  callUpdateApi(url :string, details : Primary | Availability | Facility | BloodBank){
+    this.uiService.showProgressSpinner();
+    if(this.userService.isUserLoggedIn()){
+      details.email = this.userService.getUser().email;
+      details.token = this.userService.getUser().token;
+      this.http.post<any>(url , JSON.stringify(details), {
+        headers : JSON_Header
+      }).subscribe((res) => {
+        this.handleUpdateError(res);
+      })
+    }
+  }
+
+  private handleUpdateError(res : any){
+    console.log(res);
+    if(res){
+      if(res.status == 200){
+        this.setHospitalToLocal(res.hospital);
+        this.uiService.showPositiveSnack(res.message);
+        this.uiService.hideProgressSpinner();
+        return;
+      }else if(res.status == 400){
+        this.uiService.showErrorSnack("Session Expired");
+        this.userService.logout();
+        this.uiService.hideProgressSpinner();
+        return;
+      }else{
+        this.uiService.showErrorSnack("There seems a Network Error");
+        this.uiService.hideProgressSpinner();
+        return;
+      }
+    }else{
+      this.uiService.showErrorSnack("Unknown Network Error");
+      this.uiService.hideProgressSpinner();
+      return;
+    }
+  }
 
 }

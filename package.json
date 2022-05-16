@@ -1,12 +1,37 @@
 {
   "name": "health-io-admin",
   "version": "0.0.0",
+  "main": "main.js",
+  "build": {
+    "appId": "com.srvvraj311.healthio.admin",
+    "productName": "Health-IO",
+    "target": "mac",
+    "nsis": {
+      "oneClick": "true",
+      "runAfterFinish": true,
+      "createDesktopShortcut": true
+    },
+    "mac": {
+      "category": "utility",
+      "icon": "dist/assets/health.io.icns"
+    },
+    "snap": {
+      "description": "Health-IO Hospital Application "
+    },
+    "files": [
+      "dist/health-io-admin/",
+      "package.json",
+      "app.js"
+    ]
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "electron:local": "sudo ng build --base-href='./'  && sudo electron .",
+    "electron:serve": "wait-on tcp:4200 && electron . --serve"
   },
   "private": true,
   "dependencies": {
@@ -20,6 +45,9 @@
     "@angular/platform-browser": "~13.2.0",
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
+    "electron": "^18.2.3",
+    "electron-debug": "^3.2.0",
+    "electron-reloader": "^1.2.3",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
@@ -39,3 +67,4 @@
     "typescript": "~4.5.2"
   }
 }
+

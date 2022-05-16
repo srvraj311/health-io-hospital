@@ -9,6 +9,9 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatIconModule} from "@angular/material/icon";
 import {MatTabsModule} from "@angular/material/tabs";
+import {MatRadioModule} from "@angular/material/radio";
+import {MatCheckbox, MatCheckboxModule} from "@angular/material/checkbox";
+import {MatSidenavModule} from "@angular/material/sidenav";
 
 @NgModule({
   declarations: [],
@@ -24,6 +27,9 @@ import {MatTabsModule} from "@angular/material/tabs";
     MatSnackBarModule,
     MatIconModule,
     MatTabsModule,
+    MatRadioModule,
+    MatCheckboxModule,
+    MatSidenavModule,
   ]
 })
 export class MaterialModule {
