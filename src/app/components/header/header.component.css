@@ -5,3 +5,6 @@
   margin-top: 5px;
   width: 160px;
 }
+mat-toolbar {
+  background: white!important;
+}

@@ -60,7 +60,7 @@ ul li {
   width: 200px;
   align-self: end;
   margin-right: 30px;
-  background-color: lightseagreen;
+  background-color: var(--primary);
   color: white;
 }
 

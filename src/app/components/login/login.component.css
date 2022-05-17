@@ -25,7 +25,7 @@ mat-form-field{
   margin-top: 20px;
   align-self: end;
   width: 60%;
-  border-color: lightseagreen;
+  border-color: var(--primary);
   color: black;
   margin-bottom: 10px;
 }
