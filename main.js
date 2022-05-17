@@ -23,9 +23,9 @@ function createWindow(title, content) {
     width: 1200,
     height: 768,
     frame: false,
-    icon : 'dist/health-io-admin/assets/icon.png',
+    icon: "dist/health-io-admin/assets/icon.png",
     webPreferences: {
-      devTools: true,
+      devTools: false,
       webSecurity: false,
       nodeIntegration: true,
       allowRunningInsecureContent: serve,
@@ -57,7 +57,7 @@ function createWindow(title, content) {
     // when you should delete the corresponding element.
     win = null;
   });
-  win.setMenu(null);
+  // win.setMenu(null);
   return win;
 }
 
@@ -79,16 +79,17 @@ try {
   });
 
   ipcMain.on("close-window", async () => {
-    const ret = await dialog.showMessageBox(win, {
-      title: 'Close Window',
-      buttons: ['Close', 'Cancel'],
-      type: 'question',
-      message: 'Close Window',
-      detail: `Do you want to close this window?`,
-      icon : 'dist/health-io-admin/assets/icon.png'
-    }).catch(e => console.log(e))
-    if(ret.response === 0) win.close();
-
+    const ret = await dialog
+      .showMessageBox(win, {
+        title: "Close Window",
+        buttons: ["Close", "Cancel"],
+        type: "question",
+        message: "Close Window",
+        detail: `Do you want to close this window?`,
+        icon: "dist/health-io-admin/assets/icon.png",
+      })
+      .catch((e) => console.log(e));
+    if (ret.response === 0) win.close();
   });
   ipcMain.on("minimize-window", () => {
     win.minimize();
