@@ -1,0 +1,48 @@
+<mat-card class="card mat-elevation-z0 outline">
+  <mat-card-header class="card_header">
+    <div mat-card-avatar [ngClass]="booking.booking_status == 'Booked' ? 'booked' : 'not_booked'" >
+      <mat-icon *ngIf="booking.booking_status.toLowerCase() == 'booked'" class="icon">task_alt</mat-icon>
+      <mat-icon *ngIf="booking.booking_status.toLowerCase() == 'cancelled'" class="icon">clear</mat-icon>
+      <mat-icon *ngIf="booking.booking_status.toLowerCase() == 'discharged'" class="icon">logout</mat-icon>
+      <mat-icon *ngIf="booking.booking_status.toLowerCase() == 'failed'" class="icon">not_interested</mat-icon>
+    </div>
+    <mat-card-title class="card_title">
+      <div class="start">{{booking.patient_name}}</div>
+    </mat-card-title>
+    <mat-card-subtitle>{{booking.patient_phone}} <br> {{booking.email}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="start">
+      <div class="date">
+        <span>{{booking.patient_age}} Years Old</span>
+      </div>
+      <span>{{booking.time}}</span>
+      <span>{{booking.date}}</span>
+    </div>
+
+    <div class="end">
+      <div style="align-self: end; font-size: 1rem"><b>{{booking.booking_type}}</b></div>
+      <div style="align-self: end; font-size: 1rem"><b>{{booking.booking_number}}</b></div>
+    </div>
+
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-stroked-button
+            [disabled]="booking.booking_status.toLowerCase() != 'booked'"
+            (click)="discharge(booking)"
+            [ngClass]="booking.booking_status.toLowerCase() != 'booked' ? 'disabled' : ''"
+    >
+      <mat-icon matPrefix color="primary">
+        <mat-spinner *ngIf="waiting" diameter="20" ></mat-spinner>
+       {{!waiting ? 'logout' : ''}}
+      </mat-icon>
+      Discharge</button>
+    <button mat-stroked-button [disabled]="booking.booking_status.toLowerCase() == 'cancelled'" (click)="cancel(booking)">
+      <mat-icon color="warn" matPrefix>
+        <mat-spinner *ngIf="waiting2" diameter="20" ></mat-spinner>
+        {{!waiting2 ? 'cancel' : ''}}
+      </mat-icon>
+      Cancel</button>
+  </mat-card-actions>
+</mat-card>

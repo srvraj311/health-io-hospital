@@ -6,8 +6,23 @@
     <div class="vertical">
       <mat-label class="name">{{user.f_name + " " + user.l_name}}</mat-label>
       <p class="email">{{user.email}}</p>
-      <button mat-raised-button color="warn" (click)="logout()"><mat-icon matPrefix>logout</mat-icon>Logout</button>
+      <button mat-raised-button color="warn" (click)="logout()">
+        <mat-icon matPrefix>logout</mat-icon>
+        Logout
+      </button>
     </div>
   </div>
-  <div>Last Updated : <mat-hint>{{hospital.last_updated}}</mat-hint></div>
+  <div>Last Updated :
+    <mat-hint>{{hospital.last_updated}}</mat-hint>
+  </div>
+  <mat-card class="card_horizontal mat-elevation-z0">
+    <mat-card-content>
+      <p>Views</p>
+      <p style="text-align: center">{{views}}</p>
+    </mat-card-content>
+    <mat-card-content>
+      <p>Bookings</p>
+      <p style="text-align: center">{{bookingCount}}</p>
+    </mat-card-content>
+  </mat-card>
 </div>

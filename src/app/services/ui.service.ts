@@ -8,10 +8,19 @@ import {ElectronService} from "./electron.service";
   providedIn: 'root'
 })
 export class UiService {
+  // Spinner Overlays on Screens
   private spinnerVisible : BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   spinnerVisibleObservable = this.spinnerVisible.asObservable();
-  private navOpen : BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  // Navigation Panel
+  private navOpen : BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
   getNavOpen = this.navOpen.asObservable();
+  // Spare Observer for other components
+  private waiting = new BehaviorSubject<boolean>(false);
+  getWaiting = this.waiting.asObservable();
+  // View Counts of Hospital
+  private views : BehaviorSubject<string> = new BehaviorSubject<string>('0');
+  getViews = this.views.asObservable();
+
   constructor(private snack : MatSnackBar, private electron:ElectronService) {
 
   }
@@ -46,5 +55,13 @@ export class UiService {
       console.log('Run in browser');
       return false;
     }
+  }
+
+  setWaiting(val : boolean){
+    this.waiting.next(val);
+  }
+
+  setCount(count : string) {
+    this.views.next(count);
   }
 }

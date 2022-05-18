@@ -1,8 +1,9 @@
 <app-titlebar></app-titlebar>
 <app-header></app-header>
-<div *ngIf="isSpinnerOverlayVisible" class="spinner_overlay">
-  <mat-spinner color="primary" diameter="80"></mat-spinner>
-</div>
+<app-spinner-overlay [visible]="isSpinnerOverlayVisible"></app-spinner-overlay>
+<!--<div *ngIf="isSpinnerOverlayVisible" class="spinner_overlay">-->
+<!--  <mat-spinner color="primary" diameter="80"></mat-spinner>-->
+<!--</div>-->
 
 <router-outlet></router-outlet>
 <app-footer></app-footer>

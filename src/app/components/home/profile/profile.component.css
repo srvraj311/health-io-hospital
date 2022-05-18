@@ -39,5 +39,14 @@ img {
 }
 button {
   margin-top: 10px;
-
 }
+.card_horizontal {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+}
+

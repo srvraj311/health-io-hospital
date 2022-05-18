@@ -7,6 +7,9 @@ export class HttpPaths{
   public static updateFacility:string = "admin/hospitals/updateFacility/"
   public static updateBloodBank:string = "admin/hospitals/updateBloodBank/"
   public static getBookings:string = "api/booking/getByLicenceId/"
+  public static dischargeBooking:string = "api/booking/dischargeBooking/"
+  public static cancelBooking:string = "api/booking/cancelBooking/"
+  public static getViewCounts: string = "admin/hospitals/views/"
 
 
 }

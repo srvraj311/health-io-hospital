@@ -16,7 +16,7 @@ export class ApiService {
   private hospital:BehaviorSubject<Hospital|null> = new BehaviorSubject<Hospital | null>(null);
   getHospital:Observable<Hospital|null> = this.hospital.asObservable();
   BASE_URL:string = '';
-  booking:BehaviorSubject<BookingItem[]|null> = new BehaviorSubject<BookingItem[] | null>(null);
+  private booking:BehaviorSubject<BookingItem[]|null> = new BehaviorSubject<BookingItem[] | null>(null);
   getBookings = this.booking.asObservable();
 
   constructor(private userService : UserService, private uiService:UiService, private http:HttpClient, private router : Router) {
@@ -116,6 +116,7 @@ export class ApiService {
         this.uiService.showErrorSnack("There seems a network issue while getting Bookings");
       }
     });
+    this.getViewCounts();
   }
 
   private handleUpdateError(res : any){
@@ -141,6 +142,36 @@ export class ApiService {
       this.uiService.hideProgressSpinner();
       return;
     }
+  }
+
+  discharge(id: string):Observable<any> {
+    const url = `${this.BASE_URL}${HttpPaths.dischargeBooking}`;
+    const body = { "booking_id": id };
+    return this.http.post<any>(url , JSON.stringify(body), {
+      headers : JSON_Header
+    });
+  }
+
+  cancelBooking(id: string):Observable<any> {
+    const url = `${this.BASE_URL}${HttpPaths.cancelBooking}`;
+    const body = { "booking_id": id };
+    return this.http.post<any>(url , JSON.stringify(body), {
+      headers : JSON_Header
+    });
+  }
+
+  getViewCounts(){
+    const url = `${this.BASE_URL}${HttpPaths.getViewCounts}${this.userService.getUser().licence_id}`;
+    this.http.get<any>(url).subscribe((res) => {
+      if (res) {
+        if (res.status == "200") {
+          this.uiService.setCount(res.count as string);
+          console.log("View" + " " + res.count);
+        }
+      } else {
+        this.uiService.showErrorSnack("There seems a network issue while getting View Counts");
+      }
+    });
   }
 
 }

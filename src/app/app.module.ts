@@ -20,6 +20,7 @@ import { ProfileComponent } from './components/home/profile/profile.component';
 import { TitlebarComponent } from './components/titlebar/titlebar.component';
 import { BookingComponent } from './components/home/booking/booking.component';
 import { SpinnerOverlayComponent } from './components/spinner-overlay/spinner-overlay.component';
+import { BookingItemComponent } from './components/home/booking/booking-item/booking-item.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { SpinnerOverlayComponent } from './components/spinner-overlay/spinner-ov
     ProfileComponent,
     TitlebarComponent,
     BookingComponent,
-    SpinnerOverlayComponent
+    SpinnerOverlayComponent,
+    BookingItemComponent
   ],
     imports: [
         BrowserModule,

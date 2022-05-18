@@ -3,6 +3,7 @@ import {BookingItem} from "../../../Models/HelperModals";
 import {UiService} from "../../../services/ui.service";
 import {ApiService} from "../../../services/api.service";
 import {UserService} from "../../../services/user.service";
+import {BookingService} from "../../../services/booking.service";
 
 @Component({
   selector: 'app-booking',
@@ -13,7 +14,11 @@ export class BookingComponent implements OnInit {
   bookings! : BookingItem[];
   isSpinnerVisible : boolean = true;
   isEmpty : boolean = true;
-  constructor(private ui:UiService , private api : ApiService, private user: UserService) {
+  constructor(private ui:UiService ,
+              private api : ApiService,
+              private user: UserService,
+              private bookingService : BookingService
+  ) {
     this.api.getBookings.subscribe((b) => {
       if(b){
         this.bookings = b as BookingItem[];
@@ -24,7 +29,10 @@ export class BookingComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.bookings);
+    console.log("Starting Booking Heart-Beat");
+    setTimeout(() => {
+      this.bookingService.fetchBookingEverySeconds();
+    }, 1000);
   }
 
   reload() {

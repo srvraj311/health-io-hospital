@@ -70,6 +70,7 @@ export interface BloodBank{
 }
 
 export interface BookingItem{
+  id : string,
   licence_id : string,
   date : string,
   time : string,
