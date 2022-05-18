@@ -68,3 +68,17 @@ export interface BloodBank{
   ab_negative : string,
   o_negative : string,
 }
+
+export interface BookingItem{
+  licence_id : string,
+  date : string,
+  time : string,
+  patient_name : string,
+  patient_age : string,
+  patient_phone : string,
+  booking_number : string,
+  booking_timestamp : string,
+  booking_status : string,
+  email : string,
+  booking_type : string,
+}

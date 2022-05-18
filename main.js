@@ -25,7 +25,7 @@ function createWindow(title, content) {
     frame: false,
     icon: "dist/health-io-admin/assets/icon.png",
     webPreferences: {
-      devTools: false,
+      devTools: true,
       webSecurity: false,
       nodeIntegration: true,
       allowRunningInsecureContent: serve,

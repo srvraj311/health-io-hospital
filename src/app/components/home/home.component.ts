@@ -23,6 +23,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.api.getHospitalFromApi();
+    this.api.getBookingsFromApi(this.userService.getUser().licence_id);
+    // this.api.getBookingsFromApi("TTTTTT");
   }
   toggleSideNav(){
     this.uiService.toggleSideNav();

@@ -1,10 +1,15 @@
 <div class="home">
-<!--  <button mat-stroked-button (click)="logout()">Logout</button>-->
-  <mat-sidenav-container  >
-    <mat-sidenav mode="side" class="left_bar" [opened]="sideNavOpened"><app-profile ></app-profile></mat-sidenav>
+  <!--  <button mat-stroked-button (click)="logout()">Logout</button>-->
+  <mat-sidenav-container>
+    <mat-sidenav mode="side" class="left_bar" [opened]="sideNavOpened">
+      <app-profile></app-profile>
+    </mat-sidenav>
   </mat-sidenav-container>
   <div class="content">
-    <mat-tab-group  dynamicHeight>
+    <mat-tab-group dynamicHeight>
+      <mat-tab label="Bookings">
+        <app-booking></app-booking>
+      </mat-tab>
       <mat-tab label="Primary Details">
         <app-primary></app-primary>
       </mat-tab>
@@ -17,12 +22,7 @@
       <mat-tab label="Blood Bank">
         <app-blood-bank></app-blood-bank>
       </mat-tab>
-      <mat-tab label="Emergency">
-        <div class="example-large-box mat-elevation-z4">
-          Large content
-        </div>
-      </mat-tab>
-      <mat-tab label="Bookings">
+      <mat-tab label="Emergency Cases">
         <div class="example-large-box mat-elevation-z4">
           Large content
         </div>

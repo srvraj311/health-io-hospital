@@ -5,15 +5,13 @@
   "author": "Sourabh (srvraj311)",
   "description": "Application for Hospitals to Update Data about Hospitals to Health-IO app",
   "build": {
-    "appId": "com.srvraj311.healthio.admin",
+    "appId": "com.srvvraj311.healthio.admin",
     "productName": "Health-IO",
-    "target": "win",
-    "icon": "dist/health-io-admin/assets/ic.ico",
+    "target": "mac",
     "nsis": {
       "oneClick": "true",
       "runAfterFinish": true,
-      "createDesktopShortcut": true,
-      "installerIcon": "dist/health-io-admin/assets/ic.ico"
+      "createDesktopShortcut": true
     },
     "mac": {
       "category": "utility",
@@ -70,5 +68,6 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "typescript": "~4.5.2"
-  }
+  },
+  "win" : "//{\n//\n//  \"name\": \"health-io-admin\",\n//  \"version\": \"0.1.0\",\n//  \"main\": \"main.js\",\n//  \"author\": \"Sourabh (srvraj311)\",\n//  \"description\": \"Application for Hospitals to Update Data about Hospitals to Health-IO app\",\n//  \"build\": {\n//    \"appId\": \"com.srvraj311.healthio.admin\",\n//    \"productName\": \"Health-IO\",\n//    \"target\": \"win\",\n//    \"icon\": \"dist/health-io-admin/assets/ic.ico\",\n//    \"nsis\": {\n//      \"oneClick\": \"true\",\n//      \"runAfterFinish\": true,\n//      \"createDesktopShortcut\": true,\n//      \"installerIcon\": \"dist/health-io-admin/assets/ic.ico\"\n//    },\n//    \"mac\": {\n//      \"category\": \"utility\",\n//      \"icon\": \"dist/health-io-admin/assets/health.io.icns\"\n//    },\n//    \"snap\": {\n//      \"description\": \"Health-IO Hospital Application \"\n//    },\n//    \"files\": [\n//      \"dist/health-io-admin/\",\n//      \"package.json\",\n//      \"main.js\"\n//    ]\n//  },\n//  \"scripts\": {\n//    \"ng\": \"ng\",\n//    \"start\": \"ng serve\",\n//    \"build\": \"ng build\",\n//    \"watch\": \"ng build --watch --configuration development\",\n//    \"test\": \"ng test\",\n//    \"electron:local\": \"sudo ng build --base-href='./'  && sudo electron .\",\n//    \"electron:serve\": \"wait-on tcp:4200 && electron . --serve\"\n//  },\n//  \"private\": true,\n//  \"dependencies\": {\n//    \"@angular/animations\": \"~13.2.0\",\n//    \"@angular/cdk\": \"^13.3.7\",\n//    \"@angular/common\": \"~13.2.0\",\n//    \"@angular/compiler\": \"~13.2.0\",\n//    \"@angular/core\": \"~13.2.0\",\n//    \"@angular/forms\": \"~13.2.0\",\n//    \"@angular/material\": \"^13.3.7\",\n//    \"@angular/platform-browser\": \"~13.2.0\",\n//    \"@angular/platform-browser-dynamic\": \"~13.2.0\",\n//    \"@angular/router\": \"~13.2.0\",\n//    \"rxjs\": \"~7.5.0\",\n//    \"tslib\": \"^2.3.0\",\n//    \"zone.js\": \"~0.11.4\"\n//  },\n//  \"devDependencies\": {\n//    \"electron\": \"^18.2.3\",\n//    \"electron-builder\": \"^23.0.3\",\n//    \"electron-debug\": \"^3.2.0\",\n//    \"electron-reloader\": \"^1.2.3\",\n//    \"@angular-devkit/build-angular\": \"~13.2.5\",\n//    \"@angular/cli\": \"~13.2.5\",\n//    \"@angular/compiler-cli\": \"~13.2.0\",\n//    \"@types/jasmine\": \"~3.10.0\",\n//    \"@types/node\": \"^12.11.1\",\n//    \"jasmine-core\": \"~4.0.0\",\n//    \"karma\": \"~6.3.0\",\n//    \"karma-chrome-launcher\": \"~3.1.0\",\n//    \"karma-coverage\": \"~2.1.0\",\n//    \"karma-jasmine\": \"~4.0.0\",\n//    \"karma-jasmine-html-reporter\": \"~1.7.0\",\n//    \"typescript\": \"~4.5.2\"\n//  }\n//}\n"
 }

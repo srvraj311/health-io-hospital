@@ -10,7 +10,7 @@ import {ElectronService} from "./electron.service";
 export class UiService {
   private spinnerVisible : BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   spinnerVisibleObservable = this.spinnerVisible.asObservable();
-  private navOpen : BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
+  private navOpen : BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   getNavOpen = this.navOpen.asObservable();
   constructor(private snack : MatSnackBar, private electron:ElectronService) {
 

@@ -5,15 +5,17 @@ router-outlet {
 .spinner_overlay {
   position: absolute;
   z-index: 199;
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   background-color: black;
   opacity: 0.4;
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 0;
+  top: 60px;
   left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 mat-spinner {

@@ -3,7 +3,7 @@ import {BehaviorSubject, Observable} from "rxjs";
 import Hospital from "../Models/Hospital";
 import {UserService} from "./user.service";
 import {UiService} from "./ui.service";
-import {Availability, BloodBank, Facility, Primary, User} from "../Models/HelperModals";
+import {Availability, BloodBank, BookingItem, Facility, Primary, User} from "../Models/HelperModals";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {HttpPaths} from "../Config/HttpPaths";
 import {Router} from "@angular/router";
@@ -16,6 +16,9 @@ export class ApiService {
   private hospital:BehaviorSubject<Hospital|null> = new BehaviorSubject<Hospital | null>(null);
   getHospital:Observable<Hospital|null> = this.hospital.asObservable();
   BASE_URL:string = '';
+  booking:BehaviorSubject<BookingItem[]|null> = new BehaviorSubject<BookingItem[] | null>(null);
+  getBookings = this.booking.asObservable();
+
   constructor(private userService : UserService, private uiService:UiService, private http:HttpClient, private router : Router) {
     const url = localStorage.getItem('url');
     if(url){
@@ -91,6 +94,28 @@ export class ApiService {
         this.handleUpdateError(res);
       })
     }
+  }
+
+  getBookingsFromApi(licence_id : string) {
+    const url = `${this.BASE_URL}${HttpPaths.getBookings}${licence_id}`;
+    this.http.get<any>(url).subscribe((res) => {
+      if (res) {
+        if (res.status == "200") {
+          const list: BookingItem[] = JSON.parse(res.bookings);
+          if (list != null) {
+            this.booking.next(list);
+          } else {
+            this.uiService.showErrorSnack("Bookings Empty or Not Received Properly");
+          }
+        } else if (res.status == "400") {
+          this.uiService.showErrorSnack("No Bookings to Display");
+        } else {
+          this.uiService.showErrorSnack("Unable to Process Bookings")
+        }
+      } else {
+        this.uiService.showErrorSnack("There seems a network issue while getting Bookings");
+      }
+    });
   }
 
   private handleUpdateError(res : any){

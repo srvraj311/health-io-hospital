@@ -18,6 +18,8 @@ import { FacilitiesComponent } from './components/home/facilities/facilities.com
 import { BloodBankComponent } from './components/home/blood-bank/blood-bank.component';
 import { ProfileComponent } from './components/home/profile/profile.component';
 import { TitlebarComponent } from './components/titlebar/titlebar.component';
+import { BookingComponent } from './components/home/booking/booking.component';
+import { SpinnerOverlayComponent } from './components/spinner-overlay/spinner-overlay.component';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { TitlebarComponent } from './components/titlebar/titlebar.component';
     FacilitiesComponent,
     BloodBankComponent,
     ProfileComponent,
-    TitlebarComponent
+    TitlebarComponent,
+    BookingComponent,
+    SpinnerOverlayComponent
   ],
     imports: [
         BrowserModule,
