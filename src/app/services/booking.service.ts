@@ -4,6 +4,7 @@ import {UserService} from "./user.service";
 import {UiService} from "./ui.service";
 import {BehaviorSubject} from "rxjs";
 import {BookingItem} from "../Models/HelperModals";
+import AppHelper from "../Helper/AppHelper";
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,9 @@ export class BookingService {
 
   constructor(private apiService: ApiService, private uiService: UiService, private user: UserService) {
     this.apiService.getBookings.subscribe((b) => {
+      b?.sort((a, b) => {
+        return AppHelper.compareFormattedDateAndTime(a.time + " " + a.date, b.time + " " + b.date);
+      });
       this.bookings.next(b as BookingItem[]);
     })
   }

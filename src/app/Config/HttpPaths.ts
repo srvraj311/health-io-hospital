@@ -10,6 +10,8 @@ export class HttpPaths{
   public static dischargeBooking:string = "api/booking/dischargeBooking/"
   public static cancelBooking:string = "api/booking/cancelBooking/"
   public static getViewCounts: string = "admin/hospitals/views/"
-
-
+  public static getEmergencyList: string = "hospitals/emergency/"
+  public static addEmergency: string = "hospitals/emergency/add/"
+  public static updateEmergency: string = "hospitals/emergency/update/"
+  public static deleteEmergency: string = "hospitals/emergency/delete/"
 }

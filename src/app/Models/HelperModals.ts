@@ -83,3 +83,24 @@ export interface BookingItem{
   email : string,
   booking_type : string,
 }
+
+export interface EmergencyReqModal {
+  email : string,
+  token : string,
+  licence_id : string,
+  emergency_case : string;
+  id? : string;
+}
+
+export interface EmergencyCase {
+  id : string,
+  name_of_patient : string,
+  type_of_emergency : string,
+  address : string,
+  intensity_of_emergency : string,
+  requirements : string,
+  time : string,
+  date : string,
+  description : string,
+  age? : string,
+}

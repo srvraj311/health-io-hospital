@@ -1,0 +1,58 @@
+<mat-card matCardContent *ngIf="show" class="mat-elevation-z0 card edit">
+  <mat-card-title class="title">Add Emergency Case</mat-card-title>
+  <button mat-icon-button color="warn" (click)="toggleShow()" class="edit-button">
+    <mat-icon>cancel</mat-icon>
+  </button>
+<!--  <button mat-icon-button color="warn" (click)="deleteEmergency()" class="delete-button">-->
+<!--    <mat-icon>delete</mat-icon>-->
+<!--  </button>-->
+  <div class="horizontal first">
+    <mat-form-field appearance="outline">
+      <mat-label>Patient Name</mat-label>
+      <input type="text" matInput name="patient_name" [(ngModel)]="emergency.name_of_patient">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Patient Age</mat-label>
+      <input type="number" matInput name="patient_age" [(ngModel)]="emergency.age">
+    </mat-form-field>
+  </div>
+  <div class="horizontal">
+    <mat-form-field appearance="outline">
+      <mat-label>Intensity of Emergency</mat-label>
+      <input type="text" matInput name="intensity_of_emergency" [(ngModel)]="emergency.intensity_of_emergency">
+      <mat-hint>Severe / High / Medium / Low</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Emergency Type</mat-label>
+      <input type="text" matInput name="type" [(ngModel)]="emergency.type_of_emergency">
+    </mat-form-field>
+  </div>
+  <mat-form-field appearance="outline">
+    <mat-label>Patient Address</mat-label>
+    <input type="text" matInput name="location" [(ngModel)]="emergency.address">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Any Requirements</mat-label>
+    <input type="text" matInput name="requirements" [(ngModel)]="emergency.requirements">
+  </mat-form-field>
+  <div class="horizontal">
+    <mat-form-field appearance="outline">
+      <mat-label>Time</mat-label>
+      <input type="time" matInput name="time" [(ngModel)]="emergency.time">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Date</mat-label>
+      <input type="date" matInput name="date" [(ngModel)]="emergency.date">
+    </mat-form-field>
+  </div>
+
+  <mat-form-field appearance="outline" class="last">
+    <mat-label>Description</mat-label>
+    <textarea matInput name="description" [(ngModel)]="emergency.description"></textarea>
+  </mat-form-field>
+  <button mat-stroked-button color="primary" (click)="save()" class="save-button">
+    <mat-icon matPrefix color="primary">save</mat-icon>
+    Save
+  </button>
+
+</mat-card>

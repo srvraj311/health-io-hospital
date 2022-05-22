@@ -12,7 +12,7 @@ export class UiService {
   private spinnerVisible : BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   spinnerVisibleObservable = this.spinnerVisible.asObservable();
   // Navigation Panel
-  private navOpen : BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
+  private navOpen : BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   getNavOpen = this.navOpen.asObservable();
   // Spare Observer for other components
   private waiting = new BehaviorSubject<boolean>(false);

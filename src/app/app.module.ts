@@ -21,6 +21,9 @@ import { TitlebarComponent } from './components/titlebar/titlebar.component';
 import { BookingComponent } from './components/home/booking/booking.component';
 import { SpinnerOverlayComponent } from './components/spinner-overlay/spinner-overlay.component';
 import { BookingItemComponent } from './components/home/booking/booking-item/booking-item.component';
+import { EmergencyComponent } from './components/home/emergency/emergency.component';
+import { EmergencyItemComponent } from './components/home/emergency/emergency-item/emergency-item.component';
+import { AddEmergencyComponent } from './components/home/emergency/add-emergency/add-emergency.component';
 
 
 @NgModule({
@@ -39,7 +42,10 @@ import { BookingItemComponent } from './components/home/booking/booking-item/boo
     TitlebarComponent,
     BookingComponent,
     SpinnerOverlayComponent,
-    BookingItemComponent
+    BookingItemComponent,
+    EmergencyComponent,
+    EmergencyItemComponent,
+    AddEmergencyComponent
   ],
     imports: [
         BrowserModule,

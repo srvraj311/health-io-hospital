@@ -1,0 +1,56 @@
+.card {
+  border: 1px solid lightgray;
+  border-radius: 15px;
+}
+.horizontal{
+  display: flex;
+  flex-direction: row;
+}
+.vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-form-field {
+  width: 100%;
+  margin: 0 10px;
+}
+.noEdit mat-label {
+  border: 1px solid lightgray;
+  padding: 2px 8px;
+  color: lightgray;
+}
+.item {
+  margin-right: 20px;
+  border: 1px solid lightgray;
+  padding: 2px 8px;
+
+}
+.noEdit .horizontal {
+  margin-top: 6px;
+}
+.first {
+  margin-top: 35px !important;
+}
+.last {
+  margin-bottom: 35px !important;
+}
+.edit {
+  background-color: cornsilk;
+}
+
+.edit-button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.save-button{
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+.delete-button {
+  position: absolute;
+  right: 50px;
+  top: 10px;
+}

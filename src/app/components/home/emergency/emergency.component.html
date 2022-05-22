@@ -1,0 +1,5 @@
+<button mat-stroked-button class="emergency_holder" color="primary" (click)="showAddToggle()"><mat-icon matPrefix>add</mat-icon> Add New Emergency</button>
+<app-add-emergency></app-add-emergency>
+<div *ngFor="let emergency of emergencyList" class="emergency_holder" >
+  <app-emergency-item [emergency]="emergency" ></app-emergency-item>
+</div>
