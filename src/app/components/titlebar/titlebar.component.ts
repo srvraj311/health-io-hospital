@@ -12,6 +12,8 @@ export class TitlebarComponent implements OnInit {
   constructor(private uiService : UiService, private electron : ElectronService) {
     this.isElectron = this.uiService.isElectron();
   }
+  isMac:boolean = this.electron.isElectronMacOs();
+  // isMac:boolean = false;
   ngOnInit(): void {
 
   }

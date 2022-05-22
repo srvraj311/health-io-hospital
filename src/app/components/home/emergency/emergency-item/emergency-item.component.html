@@ -18,7 +18,13 @@
   <div class="horizontal">
     <mat-form-field appearance="outline">
       <mat-label>Intensity of Emergency</mat-label>
-      <input type="text" matInput name="intensity_of_emergency" [(ngModel)]="emergency.intensity_of_emergency">
+      <mat-select name="intensity_of_emergency" [(ngModel)]="emergency.intensity_of_emergency">
+        <mat-option value="Low">Low</mat-option>
+        <mat-option value="Medium">Medium</mat-option>
+        <mat-option value="High">High</mat-option>
+        <mat-option value="Severe">Severe</mat-option>
+        <mat-option value="Unknown">Unknown</mat-option>
+      </mat-select>
       <mat-hint>Severe / High / Medium / Low</mat-hint>
     </mat-form-field>
     <mat-form-field appearance="outline">
@@ -64,31 +70,23 @@
       <mat-icon>delete</mat-icon>
     </button>
     <div class="horizontal">
-      <mat-label>Name of Patient :</mat-label>
-      <div class="item">{{emergency.name_of_patient}}</div>
-      <mat-label>Age :</mat-label>
-      <div class="item">{{emergency.age}}</div>
+      <mat-card-title-group>
+        <mat-card-title class="item">{{emergency.name_of_patient}}</mat-card-title>
+        <mat-card-subtitle class="item">{{emergency.age}} Years old</mat-card-subtitle>
+        <mat-card-subtitle class="item">{{emergency.address}}</mat-card-subtitle>
+      </mat-card-title-group>
     </div>
     <div class="horizontal">
-      <mat-label>Intensity of Emergency :</mat-label>
-      <div class="item">{{emergency.intensity_of_emergency}}</div>
-      <mat-label>Emergency Type :</mat-label>
-      <div class="item">{{emergency.type_of_emergency}}</div>
+      <mat-card-content class="item">{{emergency.intensity_of_emergency}} Intensity</mat-card-content>
+      <mat-card-content class="item">{{emergency.type_of_emergency}} </mat-card-content>
     </div>
     <div class="horizontal">
-      <mat-label>Patient Address :</mat-label>
-      <div class="item">{{emergency.address}}</div>
-      <mat-label>Any Requirements :</mat-label>
-      <div class="item">{{emergency.requirements}}</div>
+      <div class="item">{{emergency.requirements}} Required</div>
     </div>
     <div class="horizontal">
-      <mat-label>Time :</mat-label>
-      <div class="item">{{emergency.time}}</div>
-      <mat-label>Date :</mat-label>
-      <div class="item">{{emergency.date}}</div>
+      <mat-card-subtitle class="item"> {{emergency.date}} {{emergency.time}} </mat-card-subtitle>
     </div>
     <div class="horizontal">
-      <mat-label>Description :</mat-label>
       <div class="item">{{emergency.description}}</div>
     </div>
   </mat-card>

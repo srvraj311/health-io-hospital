@@ -33,6 +33,7 @@ export default class AppHelper {
   static isDate1GreaterThanDate2(date1: string, date2: string) {
     return AppHelper.compareFormattedDates(date1, date2) > 0;
   }
+
   // Check if first date is equal to second date
   static isDate1EqualToDate2(date1: string, date2: string) {
     return AppHelper.compareFormattedDates(date1, date2) == 0;
@@ -70,11 +71,25 @@ export default class AppHelper {
     return hour + ':' + minute + ':' + second + ' ' + date + '-' + month + '-' + yyyy;
   }
 
-  // Compare formatted date and time
-  static compareFormattedDateAndTime(date1: string, date2: string) {
-    let d1 = new Date(date1);
-    let d2 = new Date(date2);
+ // Compare two dates and times
+  static compareDatesAndTimes(date1: string, time1: string, date2: string, time2: string) {
+    let d1 = this.convertToDateObj(date1 + ' ' + time1);
+    let d2 = this.convertToDateObj(date2 + ' ' + time2);
     return d1.getTime() - d2.getTime();
   }
 
+  // convert format dd-MM-yyyy hh:mm:ss to Javascript date
+  static convertToDateObj(given: string) {
+    let date = given.split(' ')[0];
+    let time = given.split(' ')[1];
+    let day = date.split('-')[0];
+    let month = date.split('-')[1];
+    let year = date.split('-')[2];
+    let hour = time.split(':')[0];
+    let minute = time.split(':')[1];
+    let second = time.split(':')[2];
+    return new Date(Number(year), Number(month) - 1, Number(day), Number(hour), Number(minute), Number(second));
+  }
+
 }
+

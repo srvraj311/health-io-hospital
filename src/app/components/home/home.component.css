@@ -4,7 +4,7 @@
   bottom: 0 ;
   height: calc(100vh - 60px);
   width: 100%;
-  background: transparent;
+  background: #eff3f8;
   display: flex;
   flex-direction: row;
 
@@ -13,7 +13,7 @@
   flex: 1;
   height: 100%;
   min-width: 370px;
-  background: white;
+  background: #eff3f8;
 }
 .content{
   flex : 3;

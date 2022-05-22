@@ -1,5 +1,8 @@
-<div class="titlebar">
-  <div *ngIf="isElectron" class="head close" (click)="close()"></div>
-  <div *ngIf="isElectron" class="head min" (click)="minimise()"></div>
-  <div *ngIf="isElectron" class="head max" (click)="maximise()"></div>
+<div *ngIf="isElectron" class="titlebar">
+  <div *ngIf="isMac" class="head close" (click)="close()"></div>
+  <div *ngIf="isMac" class="head min" (click)="minimise()"></div>
+  <div *ngIf="isMac" class="head max" (click)="maximise()"></div>
+  <div *ngIf="!isMac" class="win" (click)="close()"><mat-icon class="1">close</mat-icon></div>
+  <div *ngIf="!isMac" class="win" (click)="maximise()"><mat-icon class="2">crop_3_2</mat-icon></div>
+  <div *ngIf="!isMac" class="win" (click)="minimise()"><mat-icon class="3">minimize</mat-icon></div>
 </div>

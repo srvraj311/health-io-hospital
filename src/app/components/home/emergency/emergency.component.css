@@ -1,6 +1,15 @@
+.parent {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 120px);
+  overflow-y: scroll;
+}
 .emergency_holder{
   margin: 15px;
 }
 button {
   margin-bottom: 20px;
+}
+.items {
+  margin: 0 10px;
 }

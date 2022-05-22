@@ -24,6 +24,7 @@ import { BookingItemComponent } from './components/home/booking/booking-item/boo
 import { EmergencyComponent } from './components/home/emergency/emergency.component';
 import { EmergencyItemComponent } from './components/home/emergency/emergency-item/emergency-item.component';
 import { AddEmergencyComponent } from './components/home/emergency/add-emergency/add-emergency.component';
+import {MatTableModule} from "@angular/material/table";
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { AddEmergencyComponent } from './components/home/emergency/add-emergency
         AppRouterModule,
         ReactiveFormsModule,
         HttpClientModule,
-        FormsModule
+        FormsModule,
+
     ],
   providers: [],
   bootstrap: [AppComponent]

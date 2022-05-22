@@ -17,13 +17,37 @@
   padding: 8px;
   float: right !important;
   border-radius: 50%;
-  margin-right: 10px;
+  margin-right: 8px;
   margin-top: 8px;
   -webkit-app-region: none;
+}
+.win{
+  width: 30px;
+  height: 25px;
+  align-self: center;
+  float: right !important;
+  -webkit-app-region: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+mat-icon {
+  position: absolute;
+  top : 3px;
+  font-size: 1.2rem;
+;
+}
+.win:hover{
+  background-color: lightgray;
+}
+.win:first-child{
+  margin-right: 10px;
 }
 .head:first-child{
   margin-right: 15px;
 }
+
 .close {
   background: linear-gradient(#c10855 , #b6359c);
 }

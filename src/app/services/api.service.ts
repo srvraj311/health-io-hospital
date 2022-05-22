@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable, isDevMode} from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
 import Hospital from "../Models/Hospital";
 import {UserService} from "./user.service";
@@ -32,8 +32,11 @@ export class ApiService {
 
   constructor(private userService: UserService, private uiService: UiService, private http: HttpClient, private router: Router) {
     const url = localStorage.getItem('url');
-    if (url) {
+    if (url && !isDevMode()) {
       this.BASE_URL = url;
+    }else{
+      console.log("Dev Mode Detected : Url set To Localhost")
+      this.BASE_URL = "http://localhost:8080/";
     }
   }
 

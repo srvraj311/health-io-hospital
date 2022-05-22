@@ -16,7 +16,7 @@ export class BookingService {
   constructor(private apiService: ApiService, private uiService: UiService, private user: UserService) {
     this.apiService.getBookings.subscribe((b) => {
       b?.sort((a, b) => {
-        return AppHelper.compareFormattedDateAndTime(a.time + " " + a.date, b.time + " " + b.date);
+        return AppHelper.compareDatesAndTimes( b.date, b.time, a.date, a.time);
       });
       this.bookings.next(b as BookingItem[]);
     })

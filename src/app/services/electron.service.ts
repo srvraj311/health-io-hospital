@@ -49,6 +49,13 @@ export class ElectronService {
   get isElectron(): boolean {
     return !!(window && window.process && window.process.type);
   }
+
+  // Return whether platform is macOS or not
+  isElectronMacOs(){
+    let platform = window.navigator.platform;
+    return platform.toLowerCase().includes('mac');
+  }
+
   close(){
     if(this.isElectron) {
       this.ipcRenderer.send('close-window')
