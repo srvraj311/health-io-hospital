@@ -4,7 +4,8 @@ const electron_1 = require("electron");
 const path = require("path");
 const fs = require("fs");
 const url = require("url");
-const { app, dialog, ipcRenderer } = require("electron");
+const {app, dialog, ipcRenderer} = require("electron");
+const debug = require("electron-debug");
 let win = null;
 const args = process.argv[2];
 console.log(args);
@@ -56,6 +57,24 @@ function createWindow(title, content) {
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
     win = null;
+  });
+  win.webContents.on('did-fail-load', () => {
+    if (serve) {
+      const debug = require("electron-debug");
+      debug();
+      require("electron-reloader")(module);
+      win
+        .loadURL("http://localhost:4200")
+        .then((r) => console.log("Loaded Localhost"));
+    } else {
+      // Path when running electron executable
+      win.setMenu(null);
+      let pathIndex = "/dist/health-io-admin/index.html";
+      win
+        .loadURL("file://" + __dirname + pathIndex)
+        .then((_) => console.log(path.join(__dirname, pathIndex)))
+        .catch((e) => console.log(e));
+    }
   });
   // win.setMenu(null);
   return win;
@@ -111,6 +130,8 @@ try {
       win.maximize();
     }
   });
+
+
 } catch (e) {
   // Catch Error
   // throw e;
