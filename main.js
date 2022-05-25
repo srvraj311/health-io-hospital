@@ -59,22 +59,13 @@ function createWindow(title, content) {
     win = null;
   });
   win.webContents.on('did-fail-load', () => {
-    if (serve) {
-      const debug = require("electron-debug");
-      debug();
-      require("electron-reloader")(module);
-      win
-        .loadURL("http://localhost:4200")
-        .then((r) => console.log("Loaded Localhost"));
-    } else {
-      // Path when running electron executable
-      win.setMenu(null);
-      let pathIndex = "/dist/health-io-admin/index.html";
-      win
-        .loadURL("file://" + __dirname + pathIndex)
-        .then((_) => console.log(path.join(__dirname, pathIndex)))
-        .catch((e) => console.log(e));
-    }
+    // Path when running electron executable
+    win.setMenu(null);
+    let pathIndex = "/dist/health-io-admin/index.html";
+    win
+      .loadURL("file://" + __dirname + pathIndex)
+      .then((_) => console.log(path.join(__dirname, pathIndex)))
+      .catch((e) => console.log(e));
   });
   // win.setMenu(null);
   return win;
